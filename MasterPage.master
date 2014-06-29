@@ -38,8 +38,7 @@
 		<div class="wrapper">
 			<h1><a href="#" id="logo">Logito</a></h1>
             <span id="slogan">
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Servicio Rapido, Confiable &amp; Seguro</span>
+            Servicio Rapido, Confiable &amp; Seguro</span>
 			<nav id="top_nav">
 				<ul>
 					<!-- <li><a href="#" class="nav1">Home</a></li> -->
