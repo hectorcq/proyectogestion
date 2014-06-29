@@ -26,10 +26,13 @@ p {padding-bottom:18px}
 /* header */
 header {height:230px;width:100%;overflow:hidden;background:url(../images/bg_top.jpg) 0 0 no-repeat}
 #logo {display:block;background:url(../images/logo.png) 0 0 no-repeat;width:120px;height:104px;text-indent:-9999px}
-#slogan {font-size:20px;line-height:1.2em;color:#fff;float:left;padding:95px 0 0 18px;letter-spacing:-1px}
+#slogan {font-size:24px;line-height:1.2em;color:#fff;float:left;padding:85px 0px 0px 0px;letter-spacing:-1px;
+    height: 38px;
+    width: 393px;
+}
 #top_nav {float:right;padding:38px 56px 0 0}
-#top_nav li {float:left;padding-left:25px;width:50px;text-align:center}
-#top_nav li a {display:inline-block;padding-top:13px;color:#fff}
+#top_nav li {float:left;padding-left:25px;width:30px;text-align:center}
+#top_nav li a {display:inline-block;padding-top:17px;color:#fff}
 .nav1 {background:url(../images/img_top1.png) center 0 no-repeat}
 .nav2 {background:url(../images/img_top2.png) center 0 no-repeat}
 .nav3 {background:url(../images/img_top3.png) center 0 no-repeat}
