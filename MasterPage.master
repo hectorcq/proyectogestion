@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -38,10 +37,12 @@
 	<header>
 		<div class="wrapper">
 			<h1><a href="#" id="logo">Logito</a></h1>
-			<span id="slogan">Servicio Rapido, Confiable &amp; Seguro</span>
+            <span id="slogan">
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Servicio Rapido, Confiable &amp; Seguro</span>
 			<nav id="top_nav">
 				<ul>
-					<li><a href="#" class="nav1">Home</a></li>
+					<!-- <li><a href="#" class="nav1">Home</a></li> -->
 					<li><a href="#" class="nav2">Login</a></li>
 					<li><a href="#" class="nav3">Logout</a></li>
 				</ul>
@@ -49,12 +50,12 @@
 		</div>
 		<nav>
 			<ul id="menu">
-				<li id="menu_active"><a href="#"><span><span>Principal</span></span></a></li>
-				<li><a href="#"><span><span>Pagina 1</span></span></a></li>
-				<li><a href="#"><span><span>Pagina 2</span></span></a></li>
-				<li><a href="#"><span><span>Pagina 3</span></span></a></li>
-				<li><a href="#"><span><span>Pagina 4</span></span></a></li>
-				<li class="end"><a href="#"><span><span>Pagina 5</span></span></a></li>
+				<li><a href="index.aspx"><span><span>Home</span></span></a></li>
+				<li><a href="#"><span><span>Productos</span></span></a></li>
+				<li><a href="#"><span><span>Reportes</span></span></a></li>
+				<li><a href="#"><span><span>Pedidos</span></span></a></li>
+				<li><a href="#"><span><span>Creditos</span></span></a></li>
+				<li class="end"><a href="#"><span><span></span></span></a></li>
 			</ul>
 		</nav>
 	</header>
