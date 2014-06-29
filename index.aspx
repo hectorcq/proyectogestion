@@ -38,10 +38,11 @@
         </table>
 
         <asp:GridView ID="Tabla_prod" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-            runat="server" OnRowDataBound="OnRowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+            runat="server" OnRowDataBound="OnRowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Justify" SelectedIndex="0">
 
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" ForeColor="White" Font-Bold="True"></HeaderStyle>
+            <PagerSettings FirstPageImageUrl="~/img/right33.png" LastPageImageUrl="~/img/right82.png" NextPageImageUrl="~/img/right33.png" />
             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
             <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
             <SortedAscendingCellStyle BackColor="#F7F7F7" />
@@ -54,7 +55,7 @@
 
         <br />
         <asp:Button ID="btn_nuevo" runat="server" Text="Nuevo Producto" OnClick="btn_nuevo_Click" />
-        <asp:Button ID="btn_editar" runat="server" Text="Editar Producto" OnClick="btn_editar_Click" />
+        <asp:Button ID="btn_editar" runat="server" Text="Editar Producto" OnClick="btn_editar_Click" CausesValidation="False" />
         <asp:Button ID="btn_eliminar" runat="server" Text="Eliminar Producto" OnClick="btn_eliminar_Click" />
 
 
@@ -122,10 +123,9 @@
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="conditional">
                         <ContentTemplate>--%>
                             <asp:FileUpload ID="FileUpload1" runat="server" />
-                            <%--<asp:Button ID="Upload" runat="server" OnClick="Upload_Click" Text="Cargar Imagen" />
+                    <%--<asp:Button ID="Upload" runat="server" OnClick="Upload_Click" Text="Cargar Imagen" />
                             <br />
-                            <asp:Image ID="NormalImage" runat="server" Height="190px" Width="300px" ImageUrl="~/img/vacio.jpg" />--%>
-                        <%--</ContentTemplate>
+                            <asp:Image ID="NormalImage" runat="server" Height="190px" Width="300px" ImageUrl="~/img/vacio.jpg" />--%><%--</ContentTemplate>
                         <Triggers>
                             <asp:PostBackTrigger ControlID="Upload" />
                         </Triggers>
@@ -142,7 +142,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="btn_cancelSaveProd" runat="server" Text="Cancelar" OnClick="btn_cancelSaveProd_Click" />
+                    <asp:Button ID="btn_cancelSaveProd" runat="server" Text="Cancelar" OnClick="btn_cancelSaveProd_Click" CausesValidation="False"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btn_guardarProd" runat="server" Text="Guardar" OnClick="btn_guardarProd_Click" />
                 </td>
@@ -150,6 +150,106 @@
         </table>
 
     </fieldset>
+
+        </div>
+
+
+    <div id="Div_editarProducto" runat="server">
+    <fieldset style="width: 50%">
+        <legend><b>Editar Producto</b></legend>
+        <table style="width: 113%;">
+            <tr>
+                <td>Categoria</td>
+                <td>
+                    <asp:DropDownList ID="DropList_cat" runat="server" DataSourceID="SqlDataSource1" DataTextField="nombre_cate" DataValueField="nombre_cate">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SQLCARRITO %>" SelectCommand="SELECT [nombre_cate] FROM [categorias]"></asp:SqlDataSource>
+                </td>
+            </tr>
+            <tr>
+                <td>nombre Producto</td>
+                <td>
+                    <asp:TextBox ID="txt_nombreProdEditar" runat="server" ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Ingresar Nombre Producto" ControlToValidate="txt_nombreProd"></asp:RequiredFieldValidator>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Unidad </td>
+                <td>
+                    <asp:DropDownList ID="DropList_txt_nombreUnidadEditar" runat="server">
+                        <asp:ListItem>KG</asp:ListItem>
+                        <asp:ListItem>UD</asp:ListItem>
+                        <asp:ListItem>PQ</asp:ListItem>
+                        <asp:ListItem>LT</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td>Stock</td>
+                <td>
+                    <asp:TextBox ID="txt_StockEditar" runat="server" TextMode="Number"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Ingresar Stock" ControlToValidate="txt_stock"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>Precio Venta</td>
+                <td>
+                    <asp:TextBox ID="txt_PrecioVentaEditar" runat="server" TextMode="Number" Height="22px" ></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Ingresar Precio Venta" ControlToValidate="txt_precioV"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>Precio Compra</td>
+                <td>
+                    <asp:TextBox ID="txt_PrecioCompraEditar" runat="server" TextMode="Number"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Ingresar Precio Compra" ControlToValidate="txt_precioC"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>Imagen Producto</td>
+                <td>
+                    <%--<asp:ScriptManager ID="ScriptManager1" runat="server" />
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="conditional">
+                        <ContentTemplate>--%>
+                            <asp:FileUpload ID="FileUpload2_ImagenEditar" runat="server" />
+                    <%--<asp:Button ID="Upload" runat="server" OnClick="Upload_Click" Text="Cargar Imagen" />
+                            <br />
+                            <asp:Image ID="NormalImage" runat="server" Height="190px" Width="300px" ImageUrl="~/img/vacio.jpg" />--%><%--</ContentTemplate>
+                        <Triggers>
+                            <asp:PostBackTrigger ControlID="Upload" />
+                        </Triggers>
+                    </asp:UpdatePanel>--%>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td rowspan="2">
+                    <asp:Image ID="img_producto" runat="server" Height="137px" Width="338px" />
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Descripcion </td>
+                <td>
+                    <asp:TextBox ID="txt_descripcionEditar" runat="server" TextMode="MultiLine"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Ingresar Precio Compra" ControlToValidate="txt_desc"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <asp:Button ID="btn_cancelEditar" runat="server" Text="Cancelar" OnClick="btn_cancelSaveProd_Click" CausesValidation="False"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btn_actualizar" runat="server" OnClick="btn_actualizar_Click" style="margin-bottom: 0px" Text="Actualizar" />
+                </td>
+            </tr>
+        </table>
+
+    </fieldset>
+
         </div>
 </asp:Content>
 

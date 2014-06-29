@@ -29,8 +29,9 @@ public partial class index : System.Web.UI.Page
             Tabla_prod.DataSource = dset;
             Tabla_prod.DataBind();                              // Carga los datos en la grid   
 
-
+            
             Div_nuevoProd.Visible = false;
+            Div_editarProducto.Visible = false;
         }
 
 
@@ -77,11 +78,7 @@ public partial class index : System.Web.UI.Page
         //if (txt_texto.Text == "")
         if (string.IsNullOrEmpty(txt_texto.Text))
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('vacio');", true);
-            FacadeProducto pf = new FacadeProducto();
-            DataSet dset = pf.buscarProductoALL();
-            Tabla_prod.DataSource = dset;
-            Tabla_prod.DataBind();
+            RecargarTaba();
 
         }
         else
@@ -108,6 +105,7 @@ public partial class index : System.Web.UI.Page
 
     protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
     {
+
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(Tabla_prod, "Select$" + e.Row.RowIndex);
@@ -117,6 +115,7 @@ public partial class index : System.Web.UI.Page
 
     protected void OnSelectedIndexChanged(object sender, EventArgs e)
     {
+        
         int index = Tabla_prod.SelectedRow.RowIndex;
         string name = Tabla_prod.SelectedRow.Cells[0].Text;
         string country = Tabla_prod.SelectedRow.Cells[1].Text;
@@ -124,53 +123,7 @@ public partial class index : System.Web.UI.Page
         // ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + message + "');", true);
     }
 
-    //protected void btn_buscar_Click(object sender, EventArgs e)
-    //{
-    //    FacadeProducto FC = new FacadeProducto();
-    //    DataSet dset = FC.buscarProducto(txt_texto.Text); // Asigna el origen de los datos
-    //    GridView2.DataSource = dset;
-    //    GridView2.DataBind();                              // Carga los datos en la grid   
-
-
-    //    //GridView1.Columns[0].
-
-
-    //    //int id= FC.getID()+1;
-    //    //txt_texto.Text =id.ToString();
-
-
-    //        //Response.Wri  te("<script language=javascript>alert('" + FC.buscarProducto(txt_texto.Text).Count() + "');</script>)");
-    //    if (dset.Tables[0].Rows.Count != 0)
-    //    {
-    //       Response.Write("<h1>" + dset.Tables[0].Rows[0][0].ToString() + "</h1>)");
-
-
-
-    //      // GridView1.Rows[1].Cells["Column1"].Value = "new value";
-
-    //    }
-    //    //FC.IngresarProducto(1, "otronuevo", "descripcion", 1, 23, 21, 2323, "");
-
-    //}
-
-    //protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
-    //{
-    //    if (e.Row.RowType == DataControlRowType.DataRow)
-    //    {
-    //        e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridView2, "Select$" + e.Row.RowIndex);
-    //        e.Row.Attributes["style"] = "cursor:pointer";
-    //    }
-    //}
-
-    //protected void OnSelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    int index = GridView2.SelectedRow.RowIndex;
-    //    string name = GridView2.SelectedRow.Cells[0].Text;
-    //    string country = GridView2.SelectedRow.Cells[1].Text;
-    //    string message = "Row Index: " + index + "\\nName: " + name + "\\nCountry: " + country;
-    //    //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + message + "');", true);
-    //    Response.Write("<script language=javascript>alert('" +message + "');</script>)");
-    //}
+    
 
     protected void btn_nuevo_Click(object sender, EventArgs e)
     {
@@ -178,46 +131,69 @@ public partial class index : System.Web.UI.Page
         Div_nuevoProd.Visible = true;
 
 
+
+
     }
     protected void btn_editar_Click(object sender, EventArgs e)
     {
 
-    }
-    protected void btn_eliminar_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void btn_cancelSaveProd_Click(object sender, EventArgs e)
-    {
-        Div_TablaProducto.Visible = true;
+        Div_TablaProducto.Visible = false;
+        Div_editarProducto.Visible = true;
+        //LLENA LOS CAMPOS DE FORMULARIO EDITAR 
+        int idProd = Convert.ToInt32(Tabla_prod.SelectedRow.Cells[0].Text);
+        int I = Tabla_prod.SelectedRow.RowIndex;
         Div_nuevoProd.Visible = false;
-    }
-    protected void btn_guardarProd_Click(object sender, EventArgs e)
-    {
+        Div_TablaProducto.Visible= false;
+        Div_editarProducto.Visible = true;
 
-        string cat = txt_categoria.Text;
-        string nombre = txt_nombreProd.Text;
-        string unidad = DrList_unidad.Text;
-        int stock = Convert.ToInt32(txt_stock.Text);
-        int precioV = Convert.ToInt32(txt_precioC.Text);
-        int  precioC = Convert.ToInt32(txt_precioC.Text);
-        string desc=txt_desc.Text;
+        txt_nombreProdEditar.Text = Tabla_prod.SelectedRow.Cells[1].Text;
+        txt_StockEditar.Text = Tabla_prod.SelectedRow.Cells[3].Text;
+        string pV=Tabla_prod.SelectedRow.Cells[4].Text;
+        txt_PrecioVentaEditar.Text ="1500";
+        string pC = Convert.ToString(Tabla_prod.SelectedRow.Cells[5].Text); ;
+        txt_PrecioCompraEditar.Text = "1000";
+        txt_descripcionEditar.Text = Tabla_prod.SelectedRow.Cells[2].Text;
+
+     
+
+        img_producto.ImageUrl = "MostrarImage.aspx?ImageID="+idProd;
 
         
+    }
+    
+    protected void btn_actualizar_Click(object sender, EventArgs e){
+       // ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" +img.ToString() + "');", true);
+        //TOMA EL ID DEL PRODUCTO SELECCIONADO EN TABLA PARA ACTUALIZAR REGISTRO
+        int idProd = Convert.ToInt32(Tabla_prod.SelectedRow.Cells[0].Text);
+        string cat = DropList_cat.Text;
+        string nombre = txt_nombreProdEditar.Text;
+        string unidad = DropList_txt_nombreUnidadEditar.Text;
+        int stock = Convert.ToInt32(txt_StockEditar.Text);
+        int precioV = Convert.ToInt32(txt_PrecioVentaEditar.Text);
+        int precioC = Convert.ToInt32(txt_PrecioCompraEditar.Text);
+        string desc = txt_descripcionEditar.Text;
+
         FacadeProducto newProducto = new FacadeProducto();
 
-        string imagen = FileUpload1.FileName;
+        string imagen = FileUpload2_ImagenEditar.FileName;
         string Extension = Path.GetExtension(imagen);
-        if (FileUpload1.PostedFile.FileName != "")
+
+        //GUARDAR PRODUCTO CON O SIN IMAGEN ASOCIADA
+        if (FileUpload2_ImagenEditar.PostedFile.FileName != "")
         {
             if (ValidarExtension(Extension))
             {
                 //Response.Write("<script language=javascript>alert('Guaardando...');</script>)");
-                FacadeCategoria idCat=new FacadeCategoria();
+                FacadeCategoria idCat = new FacadeCategoria();
                 int idCategoria = idCat.obtenerIDcategoria(cat);
-                newProducto.IngresarProducto(idCategoria,nombre,desc,unidad,stock,precioV,precioC,FileUpload1.FileBytes
-                Response.Write("<script language=javascript>alert('"+cat+"-id:"+idCategoria+"');</script>)");
+
+                byte[] imageSize = new byte
+                 [FileUpload2_ImagenEditar.PostedFile.ContentLength];
+                HttpPostedFile uploadedImage = FileUpload2_ImagenEditar.PostedFile;
+                uploadedImage.InputStream.Read(imageSize, 0, (int)FileUpload2_ImagenEditar.PostedFile.ContentLength);
+                newProducto.ActualiarProducto(idProd, idCategoria, nombre, desc, unidad, stock, precioV, precioC, imageSize);
+                Response.Write("<script language=javascript>alert('Producto Actualizado.');</script>)");
+                LimpiarRegEditarProducto();
 
             }
             else
@@ -226,14 +202,118 @@ public partial class index : System.Web.UI.Page
                 Response.Write("<script language=javascript>alert('Formato Incorrecto ');</script>)");
 
             }
+
         }
         else
         {
-            Response.Write("<script language=javascript>alert('Sin imagen.... guardando..... ');</script>)");
-            
+
+            //SI AL EDITAR NO SE SELECCIONA OTRA IMAGEN SE QUEDA CON LA MISMA
+            FacadeCategoria idCat = new FacadeCategoria();
+            FacadeProducto fp=new FacadeProducto();
+            //Obtiene el id de categoria por nombre 
+            int idCategoria = idCat.obtenerIDcategoria(cat);
+           
+
+            byte[] imageSize = fp.getImagenProducto(idProd);
+            HttpPostedFile uploadedImage = FileUpload2_ImagenEditar.PostedFile;
+            uploadedImage.InputStream.Read(imageSize, 0, (int)FileUpload2_ImagenEditar.PostedFile.ContentLength);
+
+            newProducto.ActualiarProducto(idProd, idCategoria, nombre, desc, unidad, stock, precioV, precioC, imageSize);
+            Response.Write("<script language=javascript>alert('Producto Actualizado.');</script>)");
+            LimpiarRegEditarProducto();
+
+
+        }
+        RecargarTaba();
+        Div_editarProducto.Visible = false;
+        Div_TablaProducto.Visible = true;
+
+    }
+    protected void btn_eliminar_Click(object sender, EventArgs e)
+    {
+        int idProd = Convert.ToInt32(Tabla_prod.SelectedRow.Cells[0].Text);
+        FacadeProducto fp = new FacadeProducto();
+        //OBTIENE IDPRODUCTO DE TABLA PARA ELIMINAR
+        string nombreProd = Tabla_prod.SelectedRow.Cells[1].Text;
+        //Response.Write("<script language=javascript>alert('Producto Eliminado:'" + nombreProd + ");</script>)");
+        fp.EliminarProducto(idProd);
+        RecargarTaba();
+
+    }
+
+    protected void btn_cancelSaveProd_Click(object sender, EventArgs e)
+    {
+        Div_TablaProducto.Visible = true;
+        Div_nuevoProd.Visible = false;
+        Div_editarProducto.Visible = false;
+    }
+   
+    protected void btn_guardarProd_Click(object sender, EventArgs e)
+    {
+
+        string cat = txt_categoria.Text;
+        string nombre = txt_nombreProd.Text;
+        string unidad = DrList_unidad.Text;
+        int stock = Convert.ToInt32(txt_stock.Text);
+        int precioV = Convert.ToInt32(txt_precioV.Text);
+        int  precioC = Convert.ToInt32(txt_precioC.Text);
+        string desc=txt_desc.Text;
+
+        
+        FacadeProducto newProducto = new FacadeProducto();
+
+        string imagen = FileUpload1.FileName;
+        string Extension = Path.GetExtension(imagen);
+        
+        //GUARDAR PRODUCTO CON O SIN IMAGEN ASOCIADA
+        if (FileUpload1.PostedFile.FileName != "")
+        {
+            if (ValidarExtension(Extension))
+            {
+                //Response.Write("<script language=javascript>alert('Guaardando...');</script>)");
+                FacadeCategoria idCat=new FacadeCategoria();
+                int idCategoria = idCat.obtenerIDcategoria(cat);
+
+                byte[] imageSize = new byte
+                 [FileUpload1.PostedFile.ContentLength];
+                HttpPostedFile uploadedImage = FileUpload1.PostedFile;
+                uploadedImage.InputStream.Read(imageSize, 0, (int)FileUpload1.PostedFile.ContentLength);
+
+                newProducto.IngresarProducto(idCategoria, nombre, desc, unidad, stock, precioV, precioC, imageSize);
+                Response.Write("<script language=javascript>alert('Producto Guardado');</script>)");
+                LimpiarRegNuevoProducto();
+                
+            }
+            else
+            {
+
+                Response.Write("<script language=javascript>alert('Formato Incorrecto ');</script>)");
+
+            }
+           
+        }
+        else
+        {
+
+            FacadeCategoria idCat = new FacadeCategoria();
+            int idCategoria = idCat.obtenerIDcategoria(cat);
+            string imagepath = "/img/vacio.jpg";
+
+            byte[] imageSize = new byte[imagepath.Length];
+            HttpPostedFile uploadedImage = FileUpload1.PostedFile;
+            uploadedImage.InputStream.Read(imageSize, 0, (int)FileUpload1.PostedFile.ContentLength);
+
+            newProducto.IngresarProducto(idCategoria, nombre, desc, unidad, stock, precioV, precioC, imageSize);
+            Response.Write("<script language=javascript>alert('Producto Guardado');</script>)");
+            LimpiarRegNuevoProducto();
         
         
         }
+        Div_nuevoProd.Visible = false;
+        RecargarTaba();
+        Div_TablaProducto.Visible = true;
+        
+        
 
 
 
@@ -256,17 +336,34 @@ public partial class index : System.Web.UI.Page
         }
         return verif;
     }
-    //protected void Upload_Click(object sender, EventArgs e)
-    //{
-    //    if (this.IsPostBack)
-    //    {
+    private void RecargarTaba() {
 
-    //            FileUpload1.SaveAs(MapPath("~/img/" + FileUpload1.FileName));
-    //            System.Drawing.Image img1 = System.Drawing.Image.FromFile(MapPath("~/img/") + FileUpload1.FileName);
-    //            NormalImage.ImageUrl = "~/img/" + FileUpload1.FileName;
+        FacadeProducto FC = new FacadeProducto();
+        DataSet dset = FC.buscarProductoALL();
+        Tabla_prod.DataSource = dset;
+        Tabla_prod.DataBind();    
+    }
+    private void LimpiarRegNuevoProducto() {
+
+        txt_nombreProd.Text="";
+        txt_stock.Text = "";
+        txt_precioV.Text = "";
+        txt_precioC.Text = "";
+        txt_desc.Text = "";
+
+    }
+
+    private void LimpiarRegEditarProducto()
+    {
+        txt_nombreProdEditar.Text = "";
+        txt_StockEditar.Text = "";
+        txt_PrecioVentaEditar.Text = "";
+        txt_PrecioCompraEditar.Text = "";
+        txt_descripcionEditar.Text = "";
+
+    }
 
 
-    //    }
-    //}
+
 
 }
