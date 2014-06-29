@@ -22,16 +22,7 @@ public class Categoria
         this.nombre_cate = nombre_cate;
         this.descripcion_cate = descripcion_cate;
 
-    }
-    public int getId() {
-        return codigo_cate;
-    }
-    public string getNombre()
-    {
-        return nombre_cate;
-    }
-    public string getDesc()
-    {
-        return descripcion_cate;
+
+
     }
 }

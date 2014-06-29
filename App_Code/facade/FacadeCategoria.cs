@@ -36,24 +36,4 @@ public class FacadeCategoria
         return nroInscritos;
     }
 
-
-    public Categoria getCategoriaById(int idcat)
-    {
-        SqlCommand cmdBuscar = new SqlCommand();
-        cmdBuscar.Connection = conectarBD.Conectar();
-        cmdBuscar.CommandText = "buscar_categoriaXidcat";             // Nombre del procedimiento almacenado
-        cmdBuscar.CommandType = CommandType.StoredProcedure;
-        cmdBuscar.Parameters.AddWithValue("@idcat", idcat);    // Los parametros del procedimiento, si 
-        SqlDataReader rdr = cmdBuscar.ExecuteReader();
-
-        rdr.Read();
-        string nombre = rdr.GetString(rdr.GetOrdinal("nombre_cate"));
-        string categoria = rdr.GetString(rdr.GetOrdinal("descripcion_cate"));
-
-        Categoria cat = new Categoria(idcat, nombre, categoria);
-        conectarBD.cerrarSQL();
-
-        return cat;
-
-    }
 }
