@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master"  AutoEventWireup="true" CodeFile="Productos.aspx.cs" Inherits="index" EnableEventValidation="false" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/layout.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
     <div id="Div_TablaProducto" runat="server">
         <h3>Buscar productos</h3>
         <table border="0">
@@ -56,8 +58,6 @@
         <asp:Button ID="btn_nuevo" runat="server" Text="Nuevo Producto" OnClick="btn_nuevo_Click" />
         <asp:Button ID="btn_editar" runat="server" Text="Editar Producto" OnClick="btn_editar_Click" CausesValidation="False" />
         <asp:Button ID="btn_eliminar" runat="server" Text="Eliminar Producto" OnClick="btn_eliminar_Click" />
-
-
         <br />
         <br />
         <br />
@@ -251,4 +251,3 @@
 
         </div>
 </asp:Content>
-

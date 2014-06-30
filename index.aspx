@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="index" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLogin.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="index" EnableEventValidation="false" %>
 
 <%@ Register Assembly="Tde.Controles.RutTextBox" Namespace="Tde.Controles" TagPrefix="tde" %>
 
@@ -8,7 +8,11 @@
 
 
     <div id="div_login" runat="server" style="margin-top: 10%; margin-right: 25%; margin-bottom: 0%; margin-left: 30%">
-        <asp:Login ID="Login1" runat="server" DisplayRememberMe="False" LoginButtonText="Ingresar" RememberMeText="" UserNameLabelText="Rut" FailureText="Usuario no Registrado" Font-Names="Century Gothic" LoginButtonImageUrl="~/img/login2.png" LoginButtonType="Image" OnAuthenticate="Login1_Authenticate" PasswordRequiredErrorMessage="Ingresar Rut" UserNameRequiredErrorMessage="Ingresar Contraseña" Style="margin-bottom: 2px" Font-Size="14pt">
+        <asp:Login ID="Login1" runat="server" DisplayRememberMe="False" LoginButtonText="Ingresar" RememberMeText="" UserNameLabelText="Rut" FailureText="Usuario no Registrado" Font-Names="Tahoma" LoginButtonImageUrl="~/img/login2.png" OnAuthenticate="Login1_Authenticate" PasswordRequiredErrorMessage="Ingresar Rut" UserNameRequiredErrorMessage="Ingresar Contraseña" Style="margin-bottom: 2px" Font-Size="Large" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" CssClass="form_5" Font-Bold="False" ForeColor="#0066CC" Height="178px" TextLayout="TextOnTop" Width="383px">
+            <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
+            <LoginButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" CssClass="button1" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
+            <TextBoxStyle BackColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="0.8em" />
+            <TitleTextStyle BackColor="#1C5E55" CssClass="h3" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
         </asp:Login>
         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/create1.png" OnClick="ImageButton1_Click" />
     </div>
@@ -22,7 +26,7 @@
                     </td>
                     <td>Rut</td>
                     <td>
-                        <tde:RutTextBox ID="txt_RutCliente" runat="server"></tde:RutTextBox>
+                        <tde:RutTextBox ID="txt_RutCliente" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"></tde:RutTextBox>
                     </td>
                 </tr>
                 <tr>
@@ -34,7 +38,7 @@
                 <tr>
                     <td>Contrasena</td>
                     <td>
-                        <asp:TextBox ID="txt_contraseCiente" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="txt_contraseCiente" runat="server" TextMode="Password" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -48,21 +52,21 @@
                 <tr>
                     <td>Nombre</td>
                     <td>
-                        <asp:TextBox ID="txt_nombreCliente" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_nombreCliente" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txt_nombreCliente" ErrorMessage="Ingresar Nombre "></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>Direccion</td>
                     <td>
-                        <asp:TextBox ID="txt_direccionCliente" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_direccionCliente" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txt_direccionCliente" ErrorMessage="Ingresar Direccion "></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>Fono</td>
                     <td>
-                        <asp:TextBox ID="txt_FonoCliente" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_FonoCliente" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvFono" runat="server" ControlToValidate="txt_FonoCliente" Display="Dynamic" ErrorMessage="Ingresar Celular" Font-Names="Century Gothic" Font-Size="10pt" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="revFono" runat="server" ControlToValidate="txt_FonoCliente" Display="Dynamic" ErrorMessage="Nº no valido" Font-Names="Century Gothic" Font-Size="10pt" ForeColor="Red" ValidationExpression="\d{8}"></asp:RegularExpressionValidator>
                     </td>
@@ -70,7 +74,7 @@
                 <tr>
                     <td>Email</td>
                     <td>
-                        <asp:TextBox ID="txt_emailCliente" runat="server" TextMode="Email"></asp:TextBox>
+                        <asp:TextBox ID="txt_emailCliente" runat="server" TextMode="Email" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txt_emailCliente" ErrorMessage="Ingresar Email"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
@@ -80,9 +84,9 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td>&nbsp;<asp:Button ID="btn_cancelRegCliente" runat="server" CausesValidation="False" OnClick="btn_cancelRegCliente_Click" Text="Cancelar" />
+                    <td>&nbsp;<asp:Button ID="btn_cancelRegCliente" runat="server" CausesValidation="False" OnClick="btn_cancelRegCliente_Click" Text="Cancelar" CssClass="button1" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="btx_RegistrarCliente" runat="server" OnClick="btx_RegistrarCliente_Click" Style="height: 26px" Text="Registrar" />
+                            <asp:Button ID="btx_RegistrarCliente" runat="server" OnClick="btx_RegistrarCliente_Click" Style="height: 26px" Text="Registrar" BackColor="#0066CC" CssClass="button1" ForeColor="White" />
                     </td>
                 </tr>
             </table>

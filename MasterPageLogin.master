@@ -1,0 +1,127 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageLogin.master.cs" Inherits="MasterPageLogin" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Proyecto Gestion</title>
+<asp:ContentPlaceHolder id="head" runat="server">
+</asp:ContentPlaceHolder>
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/layout.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+<script type="text/javascript" src="js/jquery-1.5.2.js" ></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/cufon-replace.js"></script>  
+<script type="text/javascript" src="js/Cabin_400.font.js"></script>
+<script type="text/javascript" src="js/tabs.js"></script> 
+<script type="text/javascript" src="js/jquery.jqtransform.js" ></script>
+<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="js/atooltip.jquery.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/html5.js"></script>
+<style type="text/css">
+	.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url(js/PIE.htc)}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+		<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0"  alt="" /></a>
+	</div>
+<![endif]-->
+</head>
+<body>
+<div class="main">
+<!--header -->
+	<header>
+		<div class="wrapper">
+			<h1><a href="#" id="logo">Logito</a></h1>
+            <span id="slogan">
+            Servicio Rapido, Confiable &amp; Seguro</span>
+		<!--	
+           <nav id="top_nav">
+				<ul>
+					<!-- <li><a href="#" class="nav1">Home</a></li>
+					<li><a href="#" class="nav2">Login</a></li>
+					<li><a href="#" class="nav3">Logout</a></li>
+				</ul>
+			</nav>
+ 
+		</div>
+        <nav>
+		    	<ul id="menu">
+				<li><a href="index.aspx"><span><span>Home</span></span></a></li>
+				<li ><a href="#"><span><span>Productos</span></span></a></li>
+                <li><a href="#" ><span><span>Clientes</span></span></a></li>
+				<li><a href="#"><span><span>Reportes</span></span></a></li>
+				<li><a href="#"><span><span>Pedidos</span></span></a></li>
+				<li><a href="#"><span><span>Creditos</span></span></a></li>
+				<li class="end"><a href="#"><span><span></span></span></a></li>
+			</ul>
+		</nav>
+            -->
+	</header>
+<!-- / header -->
+<!--content -->
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+<!--content end-->
+			<!--footer -->
+			<footer>
+				<div class="wrapper">
+					<ul id="icons">
+						<li><a href="#" class="normaltip" title="Facebook"><img src="images/icon1.jpg" alt=""/></a></li>
+						<li><a href="#" class="normaltip" title="Delicious"><img src="images/icon2.jpg" alt=""/></a></li>
+						<li><a href="#" class="normaltip" title="Stumble Upon"><img src="images/icon3.jpg" alt=""/></a></li>
+						<li><a href="#" class="normaltip" title="Twitter"><img src="images/icon4.jpg" alt=""/></a></li>
+						<li><a href="#" class="normaltip" title="Linkedin"><img src="images/icon5.jpg" alt=""/></a></li>
+						<li><a href="#" class="normaltip" title="Reddit"><img src="images/icon6.jpg" alt=""/></a></li>
+					</ul>
+					<div class="links">
+						Website diseñada para Base de Datos CARRITO<br/>
+						Proyecto Gestion Informacion<br />
+                        Junio 2014
+      					</div>
+			</footer>
+			<!--footer end-->
+</div>
+</body>
+<script type="text/javascript"> Cufon.now(); </script>
+<script>
+    $(document).ready(function () {
+        tabs.init();
+    });
+    jQuery(document).ready(function ($) {
+        $('#form_1, #form_2, #form_3').jqTransform({ imgPath: 'jqtransformplugin/img/' });
+    });
+    $(window).load(function () {
+        $('#slider').nivoSlider({
+            effect: 'fade', //Specify sets like: 'fold,fade,sliceDown, sliceDownLeft, sliceUp, sliceUpLeft, sliceUpDown, sliceUpDownLeft' 
+            slices: 15,
+            animSpeed: 500,
+            pauseTime: 6000,
+            startSlide: 0, //Set starting Slide (0 index)
+            directionNav: false, //Next & Prev
+            directionNavHide: false, //Only show on hover
+            controlNav: false, //1,2,3...
+            controlNavThumbs: false, //Use thumbnails for Control Nav
+            controlNavThumbsFromRel: false, //Use image rel for thumbs
+            controlNavThumbsSearch: '.jpg', //Replace this with...
+            controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+            keyboardNav: true, //Use left & right arrows
+            pauseOnHover: true, //Stop animation while hovering
+            manualAdvance: false, //Force manual transitions
+            captionOpacity: 1, //Universal caption opacity
+            beforeChange: function () { },
+            afterChange: function () { },
+            slideshowEnd: function () { } //Triggers after all slides have been shown
+        });
+    });
+</script>
+</html>

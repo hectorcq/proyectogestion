@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageAdmin.master.cs" Inherits="MasterPageAdmin" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -81,9 +81,10 @@
 						<li><a href="#" class="normaltip" title="Reddit"><img src="images/icon6.jpg" alt=""/></a></li>
 					</ul>
 					<div class="links">
-						Website diseñada para Gestion BLABLA<br/>
-						Diseño de Modelos por <a href="http://www.facebook.com/PatrixBV" target="_blank" rel="nofollow">Patrix</a></div>
-				</div>
+						Website diseñada para Base de Datos CARRITO<br/>
+						Proyecto Gestion Informacion<br />
+                        Junio 2014
+      					</div>
 			</footer>
 			<!--footer end-->
 </div>
