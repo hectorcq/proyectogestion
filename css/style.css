@@ -26,7 +26,7 @@ p {padding-bottom:18px}
 /* header */
 header {height:230px;width:100%;overflow:hidden;background:url(../images/bg_top.jpg) 0 0 no-repeat}
 #logo {display:block;background:url(../images/logo.png) 0 0 no-repeat;width:120px;height:104px;text-indent:-9999px}
-#slogan {font-size:24px;line-height:1.2em;color:#fff;float:left;padding:85px 0px 0px 10px;letter-spacing:-1px;
+#slogan {font-size:24px;line-height:1.2em;color:#fff;float:left;padding:85px 0px 0px 0px;letter-spacing:-1px;
     height: 38px;
     width: 393px;
 }
@@ -39,8 +39,7 @@ header {height:230px;width:100%;overflow:hidden;background:url(../images/bg_top.
 #menu {padding:27px 0 0 42px}
 #menu li {float:left;margin-left:-1px;background:url(../images/menu_line.gif) bottom right no-repeat}
 #menu .end {background:none}
-#menu li.home {background: #3E454D url(http://s26.postimg.org/qbf4q4j9h/home.png) center no-repeat;width: 90px;}
-#menu li a {display:block;height:71px;font-size:14px;line-height:71px;color:#fff;text-decoration:none;letter-spacing:-1px}
+#menu li a {display:block;height:71px;font-size:26px;line-height:71px;color:#fff;text-decoration:none;letter-spacing:-1px}
 #menu li a span {display:block}
 #menu li a span span {padding:0 32px;margin:0 6px}
 #menu li a:hover, #menu #menu_active a {background:url(../images/menu_left.png) top left no-repeat;color:#000}

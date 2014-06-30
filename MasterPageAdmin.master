@@ -49,12 +49,12 @@
 		</div>
 		<nav>
 			<ul id="menu">
-				<li class="home"><a href="index.aspx"><span><span></span></span></a></li>
-				<li ><a href="Productos.aspx"><span><span>PRODUCTOS</span></span></a></li>
-                <li><a href="Cliente.aspx" ><span><span>CLIENTES</span></span></a></li>
-				<li><a href="Reportes.aspx"><span><span>REPORTES</span></span></a></li>
-				<li><a href="Pedidos.aspx"><span><span>PEDIDOS</span></span></a></li>
-				<li><a href="Creditos.aspx"><span><span>CREDITOS</span></span></a></li>
+				<li><a href="index.aspx"><span><span>Home</span></span></a></li>
+				<li ><a href="Productos.aspx"><span><span>Productos</span></span></a></li>
+                <li><a href="Cliente.aspx" ><span><span>Clientes</span></span></a></li>
+				<li><a href="Reportes.aspx"><span><span>Reportes</span></span></a></li>
+				<li><a href="Pedidos.aspx"><span><span>Pedidos</span></span></a></li>
+				<li><a href="Creditos.aspx"><span><span>Creditos</span></span></a></li>
 				<li class="end"><a href="#"><span><span></span></span></a></li>
 			</ul>
 		</nav>
