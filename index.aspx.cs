@@ -27,6 +27,7 @@ public partial class index : System.Web.UI.Page
         {
             Session["usuario"] = "false";
         }
+        Div_NuevoCliente.Visible = false;
 
     }
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
@@ -80,8 +81,14 @@ public partial class index : System.Web.UI.Page
     }
     protected void btn_cancelRegCliente_Click(object sender, EventArgs e)
     {
-        dvcvxcxvx
+        div_login.Visible = true;
+        Div_NuevoCliente.Visible = false;
     }
 
 
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        div_login.Visible = false;
+        Div_NuevoCliente.Visible = true;
+    }
 }

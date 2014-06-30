@@ -7,12 +7,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
 
-    <asp:Login ID="Login1" runat="server" DisplayRememberMe="False" LoginButtonText="Ingresar" RememberMeText="" UserNameLabelText="Rut" FailureText="Usuario no Registrado" Font-Names="Century Gothic" LoginButtonImageUrl="~/img/login2.png" LoginButtonType="Image" OnAuthenticate="Login1_Authenticate" PasswordRequiredErrorMessage="Ingresar Rut" UserNameRequiredErrorMessage="Ingresar Contraseña" Style="margin-bottom: 2px">
-    </asp:Login>
-    <div id="Div_NuevoCliente" runat="server">
+    <div id="div_login" runat="server" style="margin-top: 10%; margin-right: 25%; margin-bottom: 0%; margin-left: 30%">
+        <asp:Login ID="Login1" runat="server" DisplayRememberMe="False" LoginButtonText="Ingresar" RememberMeText="" UserNameLabelText="Rut" FailureText="Usuario no Registrado" Font-Names="Century Gothic" LoginButtonImageUrl="~/img/login2.png" LoginButtonType="Image" OnAuthenticate="Login1_Authenticate" PasswordRequiredErrorMessage="Ingresar Rut" UserNameRequiredErrorMessage="Ingresar Contraseña" Style="margin-bottom: 2px" Font-Size="14pt">
+        </asp:Login>
+        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/create1.png" OnClick="ImageButton1_Click" />
+    </div>
+    <div id="Div_NuevoCliente" runat="server" style="margin-top: 10%; margin-right: 25%; margin-bottom: 0%; margin-left: 30%">
         <fieldset style="width: 50%">
             <legend><b>Registrar Cliente</b></legend>
-            <table style="width: 100%;">
+            <table style="width: 241%;">
                 <tr>
                     <td rowspan="10">
                         <asp:Image ID="Image1" runat="server" Height="94px" ImageUrl="~/img/Registrocliente.png" Width="90px" />
