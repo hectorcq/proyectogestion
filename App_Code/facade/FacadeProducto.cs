@@ -20,7 +20,31 @@ public class FacadeProducto
         //
     }
     //Buscar producto sin parametros 
+    public Producto getProductoALLClass(int idprod)
+    {
+        SqlCommand cmdBuscar = new SqlCommand();
+        cmdBuscar.Connection = conectarBD.Conectar();
+        cmdBuscar.CommandText = "buscar_productosXidprod";             // Nombre del procedimiento almacenado
+        cmdBuscar.CommandType = CommandType.StoredProcedure;
+        cmdBuscar.Parameters.AddWithValue("@idprod", idprod);    // Los parametros del procedimiento, si 
+        SqlDataReader rdr = cmdBuscar.ExecuteReader();
+       
+        rdr.Read();
+         int id = rdr.GetInt32(rdr.GetOrdinal("ID"));
+        string nombre = rdr.GetString(rdr.GetOrdinal("Nombre"));
+        int categoria = rdr.GetInt32(rdr.GetOrdinal("categoria"));
+        //string desc = rdr.GetString(rdr.GetOrdinal("Detalle"));
+        string desc = "No Hay Descripcion";
+        string unidad = rdr.GetString(rdr.GetOrdinal("unidad"));
+        int stock = rdr.GetInt32(rdr.GetOrdinal("Stock"));
+        int precioV = Convert.ToInt32(rdr.GetDecimal(rdr.GetOrdinal("PrecioVenta")));
+        int precioC = Convert.ToInt32(rdr.GetDecimal(rdr.GetOrdinal("PrecioCompra")));
+        Producto producto = new Producto(id,categoria, nombre, desc,unidad, stock, precioV, precioC);
+        conectarBD.cerrarSQL();
 
+        return producto;
+
+    }
     public DataSet buscarProductoALL()
     {
         SqlCommand cmdBuscar = new SqlCommand();
