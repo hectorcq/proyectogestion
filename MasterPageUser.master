@@ -42,16 +42,16 @@
 			<nav id="top_nav">
 				<ul>
 					<!-- <li><a href="#" class="nav1">Home</a></li> -->
-					<li><a href="#" class="nav2">Login</a></li>
-					<li><a href="#" class="nav3">Logout</a></li>
+					<li><a href="index.aspx" class="nav2">Login</a></li>
+					<li><a href="index.aspx" class="nav3">Logout</a></li>
 				</ul>
 			</nav>
 		</div>
 		<nav>
 			<ul id="menu">
 				<li><a href="index.aspx"><span><span>Home</span></span></a></li>
-				<li ><a href="#"><span><span>Pedido</span></span></a></li>
-                <li><a href="#" ><span><span>Registros</span></span></a></li>
+				<li ><a href="Pedidos.aspx"><span><span>Pedido</span></span></a></li>
+                <li><a href="Reportes.aspx" ><span><span>Registros</span></span></a></li>
 				<li class="end"><a href="#"><span><span></span></span></a></li>
 			</ul>
 		</nav>
@@ -72,7 +72,7 @@
 					<ul id="icons">
 						<li><a href="www.facebook.com" class="normaltip" title="Facebook"><img src="images/icon1.jpg" alt=""/></a></li>
 						<li><a href="www.uctemuco.cl" class="normaltip" title="Universidad Catolica"><img src="images/icon2.jpg" alt=""/></a></li>
-						<li><a href="" class="normaltip" title="Stumble Upon"><img src="images/icon3.jpg" alt=""/></a></li>
+						<li><a href="#" class="normaltip" title="Stumble Upon"><img src="images/icon3.jpg" alt=""/></a></li>
 						<li><a href="www.twitter.com" class="normaltip" title="Twitter"><img src="images/icon4.jpg" alt=""/></a></li>
 						<li><a href="www.Linkedin.com" class="normaltip" title="Linkedin"><img src="images/icon5.jpg" alt=""/></a></li>
 						<li><a href="www.Reddit.com" class="normaltip" title="Reddit"><img src="images/icon6.jpg" alt=""/></a></li>
