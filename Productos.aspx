@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<link rel="stylesheet" href="css/reset.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="css/layout.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
     <div id="Div_TablaProducto" runat="server">
@@ -17,7 +17,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <asp:Button ID="btn_buscar" runat="server" Text="Buscar productos" OnClick="btn_buscar_Click" />
+                    <asp:Button ID="btn_buscar" runat="server" Text="Buscar productos" OnClick="btn_buscar_Click" CssClass="button1" />
                 </td>
             </tr>
             <tr>
@@ -27,7 +27,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:DropDownList ID="ColBuscada" runat="server">
+                    <asp:DropDownList ID="ColBuscada" runat="server" Height="17px" Width="185px">
                         <asp:ListItem Value="nombre_prod">Nombre</asp:ListItem>
                         <asp:ListItem Value="descripcion_prod">Detalle</asp:ListItem>
                         <asp:ListItem Value="stock_prod">Stock</asp:ListItem>
@@ -54,18 +54,18 @@
         <asp:LinkButton ID="lnkDummy" runat="server"></asp:LinkButton>
 
         <br />
-        <asp:Button ID="btn_nuevo" runat="server" Text="Nuevo Producto" OnClick="btn_nuevo_Click" />
-        <asp:Button ID="btn_editar" runat="server" Text="Editar Producto" OnClick="btn_editar_Click" CausesValidation="False" />
-        <asp:Button ID="btn_eliminar" runat="server" Text="Eliminar Producto" OnClick="btn_eliminar_Click" />
+        <asp:Button ID="btn_nuevo" runat="server" Text="Nuevo Producto" OnClick="btn_nuevo_Click" CssClass="button1" />
+        <asp:Button ID="btn_editar" runat="server" Text="Editar Producto" OnClick="btn_editar_Click" CausesValidation="False" CssClass="button1" />
+        <asp:Button ID="btn_eliminar" runat="server" Text="Eliminar Producto" OnClick="btn_eliminar_Click" CssClass="button1" />
         <br />
         <br />
         <br />
         <br />
     </div>
-    <br />
+    <div id="Div_nuevoProd" runat="server">
+            <br />
     <h2 class="top">Nuevo Producto</h2>
     <br />
-    <div id="Div_nuevoProd" runat="server">
     <fieldset style="width: 50%">
         <table style="width: 113%;">
             <tr>
@@ -142,9 +142,9 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="btn_cancelSaveProd" runat="server" Text="Cancelar" OnClick="btn_cancelSaveProd_Click" CausesValidation="False"/>
+                    <asp:Button ID="btn_cancelSaveProd" runat="server" Text="Cancelar" OnClick="btn_cancelSaveProd_Click" CausesValidation="False" CssClass="button1"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btn_guardarProd" runat="server" Text="Guardar" OnClick="btn_guardarProd_Click" />
+                    <asp:Button ID="btn_guardarProd" runat="server" Text="Guardar" OnClick="btn_guardarProd_Click" CssClass="button1" />
                 </td>
             </tr>
         </table>
@@ -152,10 +152,10 @@
     </fieldset>
 
         </div>
-    <br />
+    <div id="Div_editarProducto" runat="server">
+            <br />
     <h2 class="top">Editar Productos</h2>
     <br />
-    <div id="Div_editarProducto" runat="server">
     <fieldset style="width: 50%">
         <table style="width: 113%;">
             <tr>
@@ -241,9 +241,9 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="btn_cancelEditar" runat="server" Text="Cancelar" OnClick="btn_cancelSaveProd_Click" CausesValidation="False"/>
+                    <asp:Button ID="btn_cancelEditar" runat="server" Text="Cancelar" OnClick="btn_cancelSaveProd_Click" CausesValidation="False" CssClass="button1"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btn_actualizar" runat="server" OnClick="btn_actualizar_Click" style="margin-bottom: 0px" Text="Actualizar" />
+                    <asp:Button ID="btn_actualizar" runat="server" OnClick="btn_actualizar_Click" style="margin-bottom: 0px" Text="Actualizar" CssClass="button1" />
                 </td>
             </tr>
         </table>

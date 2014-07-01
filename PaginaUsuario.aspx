@@ -3,14 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
- BIENVENIDO USUARIO A LA PAGINA<br />
+ 
+    
+    <br />
+    <br />
+    <br />
+    <h2 class="top">BIENVENIDO USUARIO!</h2><br />
     <br />
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <br />
     <br />
     <br />
     <br />
-&nbsp;<asp:Button ID="Button1" runat="server" Text="Cerrar Sesion" OnClick="Button1_Click" />
+&nbsp;<asp:Button ID="Button1" runat="server" Text="Cerrar Sesion" OnClick="Button1_Click" CssClass="button1" />
     <br />
     <br />
 

@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h3>Historial de pedidos </h3>
+            <br />
+          <h2 class="top">Historial de Pedidos</h2>
+        <br />
 
     <%--<asp:gridview id="gridhistorial" runat="server" height="351px" width="799px" >
           

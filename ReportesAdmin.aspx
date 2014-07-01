@@ -26,8 +26,18 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<<<<<<< HEAD
+            <br />
+          <h2 class="top">Reportes</h2>
+        <br />
+
+
+
+
+=======
     <h3>Reportes</h3>
     <div id="div_Pedidos" runat="server">
+>>>>>>> d08c7175e890fb4953c0bf2326245c93bcb80b63
     <table border="0">
         <tr>
             <td class="auto-style2">Producto</td>
@@ -40,7 +50,7 @@
         <tr>
             <td></td>
             <td>
-                <asp:Button ID="btn_buscar" runat="server" Text="Buscar productos" OnClick="btn_buscar_Click" />
+                <asp:Button ID="btn_buscar" runat="server" Text="Buscar productos" OnClick="btn_buscar_Click" CssClass="button1" />
             </td>
             <td class="auto-style1">
                 <asp:RadioButtonList ID="rbtLstRating" runat="server"
@@ -56,7 +66,7 @@
             <td class="auto-style4"></td>
             <td class="auto-style4">Por:</td>
             <td class="auto-style5">
-                <asp:Button ID="btn_status" runat="server" Text="Status" OnClick="btn_status_Click" />
+                <asp:Button ID="btn_status" runat="server" Text="Status" OnClick="btn_status_Click" CssClass="button1" />
             </td>
             <td class="auto-style5">&nbsp;</td>
         </tr>
@@ -105,6 +115,10 @@
     <br />
     <br />
     <br />
+<<<<<<< HEAD
+    <asp:Button ID="btn_pdf" runat="server" Height="54px" Text="Generar PDF" Width="128px" OnClick="btn_pdf_Click" CssClass="button1" />
+=======
+>>>>>>> d08c7175e890fb4953c0bf2326245c93bcb80b63
     <br />
       </div>
 

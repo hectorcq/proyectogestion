@@ -42,7 +42,7 @@
 			<nav id="top_nav">
 				<ul>
 					<!-- <li><a href="#" class="nav1">Home</a></li> -->
-					<li><a href="index.aspx" class="nav2">Login</a></li>
+					<!--<li><a href="index.aspx" class="nav2">Login</a></li>-->
 					<li><a href="index.aspx" class="nav3">Logout</a></li>
 				</ul>
 			</nav>

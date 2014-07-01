@@ -8,7 +8,7 @@
 
     
         <div id="Div_TablaCliente" runat="server">
-               <h3>Gestionar Clientes</h3>
+               <h2 class="top">Gestionar Clientes</h2>
         <table border="0" cellpadding="2">
             <tr>
                 <td>Cliente</td>
@@ -19,7 +19,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <asp:Button ID="btn_BuscaCliente" runat="server" Text="Buscar Clientes" OnClick="btn_BuscaCliente_Click" CausesValidation="False" />
+                    <asp:Button ID="btn_BuscaCliente" runat="server" Text="Buscar Clientes" OnClick="btn_BuscaCliente_Click" CausesValidation="False" CssClass="button1" />
                 </td>
             </tr>
             <tr>
@@ -58,16 +58,18 @@
         <asp:LinkButton ID="LinkButton1" runat="server"></asp:LinkButton>
 
         <br />
-        <asp:Button ID="btn_NuevoCliente" runat="server" Text="Nuevo Cliente" OnClick="btn_NuevoCliente_Click" />
-        <asp:Button ID="btn_editaCliente" runat="server" Text="Editar Cliente"  CausesValidation="False" OnClick="btn_editaCliente_Click" />
-        <asp:Button ID="btn_EliminarCliente" runat="server" Text="Eliminar Cliente" OnClick="btn_EliminarCliente_Click"  />
+        <asp:Button ID="btn_NuevoCliente" runat="server" Text="Nuevo Cliente" OnClick="btn_NuevoCliente_Click" CssClass="button1" />
+        <asp:Button ID="btn_editaCliente" runat="server" Text="Editar Cliente"  CausesValidation="False" OnClick="btn_editaCliente_Click" CssClass="button1" />
+        <asp:Button ID="btn_EliminarCliente" runat="server" Text="Eliminar Cliente" OnClick="btn_EliminarCliente_Click" CssClass="button1"  />
 
 
             </div>
 
     <div id="Div_NuevoCliente" runat="server">
       <fieldset style="width: 50%">
-        <legend><b>Registrar Cliente</b></legend>
+        <br />
+          <h2 class="top">Registrar Cliente</h2>
+        <br />
         <table style="width:100%;">
             <tr>
                 <td rowspan="11">
@@ -160,9 +162,9 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    &nbsp;<asp:Button ID="btn_cancelRegCliente" runat="server" Text="Cancelar" CausesValidation="False"/>
+                    &nbsp;<asp:Button ID="btn_cancelRegCliente" runat="server" Text="Cancelar" CausesValidation="False" CssClass="button1"/>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btx_RegistrarCliente" runat="server" Text="Registrar" OnClick="btx_RegistrarCliente_Click" style="height: 26px" />
+                    <asp:Button ID="btx_RegistrarCliente" runat="server" Text="Registrar" OnClick="btx_RegistrarCliente_Click" style="height: 26px" CssClass="button1" />
                 </td>
             </tr>
         </table>
@@ -170,7 +172,9 @@
     </div>
     <div id="Div_editarCliente" runat="server">
         <fieldset style="width: 50%">
-        <legend><b>Editar Cliente</b></legend>
+        <br />
+          <h2 class="top">Editar Cliente</h2>
+        <br />
         <table style="width:100%;">
             <tr>
                 <td rowspan="10">
@@ -248,9 +252,9 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    &nbsp;<asp:Button ID="btn_cancelarEditar" runat="server" Text="Cancelar" CausesValidation="False" OnClick="btn_cancelarEditar_Click"/>
+                    &nbsp;<asp:Button ID="btn_cancelarEditar" runat="server" Text="Cancelar" CausesValidation="False" OnClick="btn_cancelarEditar_Click" CssClass="button1"/>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btn_actualizarCliente" runat="server" Text="Actualiar" OnClick="btn_actualizarCliente_Click"   />
+                    <asp:Button ID="btn_actualizarCliente" runat="server" Text="Actualiar" OnClick="btn_actualizarCliente_Click" CssClass="button1"   />
                 </td>
             </tr>
         </table>
