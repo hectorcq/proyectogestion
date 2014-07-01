@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="css/layout.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
     <div id="Div_TablaProducto" runat="server">
-        <h3>Buscar productos</h3>
+        <h2 class="top">Buscar Productos</h2>
         <table border="0">
             <tr>
                 <td>Producto</td>
@@ -63,9 +63,11 @@
         <br />
         <br />
     </div>
+    <br />
+    <h2 class="top">Nuevo Producto</h2>
+    <br />
     <div id="Div_nuevoProd" runat="server">
     <fieldset style="width: 50%">
-        <legend><b>Nuevo Producto</b></legend>
         <table style="width: 113%;">
             <tr>
                 <td>Categoria</td>
@@ -151,11 +153,11 @@
     </fieldset>
 
         </div>
-
-
+    <br />
+    <h2 class="top">Editar Productos</h2>
+    <br />
     <div id="Div_editarProducto" runat="server">
     <fieldset style="width: 50%">
-        <legend><b>Editar Producto</b></legend>
         <table style="width: 113%;">
             <tr>
                 <td>Categoria</td>
@@ -248,6 +250,7 @@
         </table>
 
     </fieldset>
-
+        <br />
         </div>
+    <br />
 </asp:Content>
