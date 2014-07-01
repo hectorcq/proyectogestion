@@ -180,7 +180,7 @@
         <br />
         <br />
         <asp:Button ID="btn_AtrasPedido" runat="server" Text="Atras" OnClick="btn_AtrasPedido_Click" />
-        <asp:Button ID="btn_generarPDF" runat="server" Text="Generar PDF pedido" OnClick="btn_generarPDF_Click" />
+        <asp:Button ID="btn_generarPDF" runat="server" Text="Generar PDF  y Enviar Correo " OnClick="btn_generarPDF_Click" />
     </div>
 </asp:Content>
 

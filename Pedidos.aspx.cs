@@ -11,8 +11,8 @@ using System.Configuration;
 using System.Web.Security;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
- 
 
+using System.Net.Mail;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -326,25 +326,61 @@ public partial class index : System.Web.UI.Page
     }
     protected void btn_generarPDF_Click(object sender, EventArgs e)
     {
-        string sesion = Convert.ToString(Session["usuario"]);
-        Response.ContentType = "application/pdf";
-        Response.AddHeader("content-disposition", "attachment;filename=ReportePedido.pdf");
-        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        StringWriter sw = new StringWriter();
-        HtmlTextWriter hw = new HtmlTextWriter(sw);
-        hw.Write("<b><u>Reporte Pedido</u></b><br/> <br/>");
-        hw.Write("<br/>Rut Usuario:" + sesion + "<br/>");
-        gvAll.RenderControl(hw);
-        StringReader sr = new StringReader(sw.ToString());
-        Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
-        HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-        PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
-        pdfDoc.Open();
-        htmlparser.Parse(sr);
-        pdfDoc.Close();
-        Response.Write(pdfDoc);
-        Response.End();
-        gvAll.AllowPaging = true;
-        gvAll.DataBind();
+        //string sesion = Convert.ToString(Session["usuario"]);
+        //Response.ContentType = "application/pdf";
+        //Response.AddHeader("content-disposition", "attachment;filename=ReportePedido.pdf");
+        //Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        //StringWriter sw = new StringWriter();
+        //HtmlTextWriter hw = new HtmlTextWriter(sw);
+        //hw.Write("<b><u>Reporte Pedido</u></b><br/> <br/>");
+        //hw.Write("<br/>Rut Usuario:" + sesion + "<br/>");
+        //gvAll.RenderControl(hw);
+        //StringReader sr = new StringReader(sw.ToString());
+        //Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+        //HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+        //PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+        //pdfDoc.Open();
+        //htmlparser.Parse(sr);
+        //pdfDoc.Close();
+        //Response.Write(pdfDoc);
+        //Response.End();
+        //gvAll.AllowPaging = true;
+        //gvAll.DataBind();
+
+        using (StringWriter sw = new StringWriter())
+        {
+            using (HtmlTextWriter hw = new HtmlTextWriter(sw))
+            {
+                gridDetalles.RenderControl(hw);
+                StringReader sr = new StringReader(sw.ToString());
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    PdfWriter.GetInstance(pdfDoc, memoryStream);
+                    pdfDoc.Open();
+                    htmlparser.Parse(sr);
+                    pdfDoc.Close();
+                    byte[] bytes = memoryStream.ToArray();
+                    memoryStream.Close();
+
+                    MailMessage mm = new MailMessage("hcayul2011@alu.uct.cl", "hcayul2011@alu.uct.cl");
+                    mm.Subject = "GridView Exported PDF";
+                    mm.Body = "GridView Exported PDF Attachment";
+                    mm.Attachments.Add(new Attachment(new MemoryStream(bytes), "GridViewPDF.pdf"));
+                    mm.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    System.Net.NetworkCredential NetworkCred = new System.Net.NetworkCredential();
+                    NetworkCred.UserName = "hcayul2011@alu.uct.cl";
+                    NetworkCred.Password = "hc9078ul";
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = NetworkCred;
+                    smtp.Port = 587;
+                    smtp.Send(mm);
+                }
+            }
+        }
     }
 }
