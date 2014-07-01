@@ -382,5 +382,6 @@ public partial class index : System.Web.UI.Page
                 }
             }
         }
+        Response.Write("<script language=javascript>alert('PDF Generado y enviado a Email);</script>)");
     }
 }

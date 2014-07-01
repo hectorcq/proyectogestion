@@ -135,5 +135,35 @@ public class FacadePedido
         return id;
     }
 
+    public void actualizdaEstadoPedido(string nombre,string estado,int numeroPed) {
+
+        SqlCommand cmdInsert = new SqlCommand();
+        cmdInsert.Connection = conectarBD.Conectar();
+        cmdInsert.CommandText = "ingresar_pedido";
+        cmdInsert.CommandType = CommandType.StoredProcedure;
+        int nped = getIDPedido() + 1;
+        string rut=getrutClient(nombre);
+        cmdInsert.Parameters.AddWithValue("@txt", estado);
+        cmdInsert.Parameters.AddWithValue("@rut", nped);
+        cmdInsert.Parameters.AddWithValue("@num_pedido", numeroPed);
+        
+        conectarBD.cerrarSQL();
+    
+    
+    }
+    public string getrutClient( string nombre)
+    {
+        SqlCommand cmdBuscar = new SqlCommand();
+        cmdBuscar.Connection = conectarBD.Conectar();
+        cmdBuscar.CommandText = "busca_rutBynombre";             // Nombre del procedimiento almacenado
+        cmdBuscar.CommandType = CommandType.StoredProcedure;    // Indicar que se ejecuta un Procedimiento en vez de una Query
+        cmdBuscar.Parameters.AddWithValue("@txt", nombre);
+        SqlDataReader rdr = cmdBuscar.ExecuteReader();
+        string id = "";
+        rdr.Read();
+        id = rdr.GetString(rdr.GetOrdinal("rut_clie"));
+        conectarBD.cerrarSQL();
+        return id;
+    }
    
 }

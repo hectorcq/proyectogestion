@@ -14,9 +14,11 @@
             width: 187px;
             height: 22px;
         }
+
         .auto-style4 {
             height: 13px;
         }
+
         .auto-style5 {
             width: 187px;
             height: 13px;
@@ -25,10 +27,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h3>Reportes</h3>
-
-
-
-
+    <div id="div_Pedidos" runat="server">
     <table border="0">
         <tr>
             <td class="auto-style2">Producto</td>
@@ -51,8 +50,7 @@
                     <asp:ListItem Text="ANULADO" Value="ANULADO"></asp:ListItem>
                 </asp:RadioButtonList>
             </td>
-            <td class="auto-style1">
-                &nbsp;</td>
+            <td class="auto-style1">&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style4"></td>
@@ -60,8 +58,7 @@
             <td class="auto-style5">
                 <asp:Button ID="btn_status" runat="server" Text="Status" OnClick="btn_status_Click" />
             </td>
-            <td class="auto-style5">
-                &nbsp;</td>
+            <td class="auto-style5">&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -72,23 +69,14 @@
                     <asp:ListItem Value="Cantidad">Cantidad</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td >
-
-                &nbsp;</td>
-            <td >
-
-                &nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td >
-
-                &nbsp;</td>
-            <td >
-
-                &nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
     </table>
 
@@ -111,10 +99,89 @@
 
 
     <br />
+    <asp:Button ID="btn_editaPedido" runat="server" Text="Editar" OnClick="btn_editaPedido_Click" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Button ID="btn_pdf" runat="server" Text="Generar PDF" OnClick="btn_pdf_Click" Height="23px" />
     <br />
     <br />
-    <asp:Button ID="btn_pdf" runat="server" Height="54px" Text="Generar PDF" Width="128px" OnClick="btn_pdf_Click" />
     <br />
+    <br />
+      </div>
+
+    <div id="Div_ActualizarPedido" runat="server">
+        <fieldset>
+            <legend>Editar estado de Pedido</legend>
+
+
+            <table style="width: 50%;">
+                <tr>
+                    <td>Cliente</td>
+                    <td>
+                        <asp:TextBox ID="txt_cliente" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Producto</td>
+                    <td>
+                        <asp:TextBox ID="txt_producto" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Cantidad</td>
+                    <td>
+                        <asp:TextBox ID="txt_cantidad" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Precio</td>
+                    <td>
+                        <asp:TextBox ID="txt_precio" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Fecha</td>
+                    <td>
+                        <asp:TextBox ID="txt_fecha" runat="server"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Estado</td>
+                    <td>
+                        <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:ListItem>ENTREGADO</asp:ListItem>
+                            <asp:ListItem>PENDIENTE</asp:ListItem>
+                            <asp:ListItem>ANULADO</asp:ListItem>
+
+                        </asp:DropDownList>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Button ID="btn_Cancel" runat="server" Text="Cancelar" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btn_Actualizar" runat="server" Style="margin-left: 0px" Text="Actualizar" OnClick="btn_Actualizar_Click" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
+        </fieldset>
+
+
+
+    </div>
 
 
 </asp:Content>
