@@ -39,18 +39,17 @@
         </table>
 
         <asp:GridView ID="Tabla_prod" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-            runat="server" OnRowDataBound="OnRowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Justify" SelectedIndex="0">
+            runat="server" OnRowDataBound="OnRowDataBound"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Justify" SelectedIndex="0" Width="60%" AllowPaging="True" OnPageIndexChanging="Tabla_Producto_PageIndexChanging" CellSpacing="15">
 
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" ForeColor="White" Font-Bold="True"></HeaderStyle>
-            <PagerSettings FirstPageImageUrl="~/img/right33.png" LastPageImageUrl="~/img/right82.png" NextPageImageUrl="~/img/right33.png" />
+            <PagerSettings FirstPageImageUrl="~/img/home.png" LastPageImageUrl="~/img/steps.png" NextPageImageUrl="~/img/der.png" FirstPageText=" " LastPageText=" " Mode="NextPreviousFirstLast" PreviousPageImageUrl="~/img/izq.png" />
             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
             <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
             <SortedAscendingCellStyle BackColor="#F7F7F7" />
             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
             <SortedDescendingCellStyle BackColor="#E5E5E5" />
             <SortedDescendingHeaderStyle BackColor="#242121" />
-
         </asp:GridView>
         <asp:LinkButton ID="lnkDummy" runat="server"></asp:LinkButton>
 

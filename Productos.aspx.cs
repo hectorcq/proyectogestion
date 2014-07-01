@@ -34,6 +34,11 @@ public partial class index : System.Web.UI.Page
 
 
     }
+    protected void Tabla_Producto_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        Tabla_prod.PageIndex = e.NewPageIndex;
+        RecargarTaba();
+    }
     protected void btn_buscar_Click(object sender, EventArgs e)
     {
         FacadeProducto FC = new FacadeProducto();

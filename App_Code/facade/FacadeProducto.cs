@@ -63,6 +63,24 @@ public class FacadeProducto
         return dsBuscar;
 
     }
+    public DataSet buscarProductoPedido()
+    {
+        SqlCommand cmdBuscar = new SqlCommand();
+        cmdBuscar.Connection = conectarBD.Conectar();
+        cmdBuscar.CommandText = "buscar_productosPedido";             // Nombre del procedimiento almacenado
+        cmdBuscar.CommandType = CommandType.StoredProcedure;    // Indicar que se ejecuta un Procedimiento en vez de una Query
+        SqlDataAdapter daBuscar = new SqlDataAdapter(cmdBuscar);
+
+        DataSet dsBuscar = new DataSet();                       // DataSet para cargar los datos
+        daBuscar.Fill(dsBuscar, "mitabla");                      // Llena el DataSet con el resultado y lo nombra con un alias "mitabla"
+        // Libera los objetos, memoria y cierra la conexion
+        daBuscar.Dispose();
+        dsBuscar.Dispose();
+        conectarBD.cerrarSQL();
+
+        return dsBuscar;
+
+    }
     public DataSet buscarProductoX(string txtProd, string BuscarPor)
     {
         SqlCommand cmdBuscar = new SqlCommand();

@@ -32,7 +32,7 @@ public partial class Cliente : System.Web.UI.Page
             tablaCliente.DataSource = dsetCliente;
             tablaCliente.DataBind();                              // Carga los datos en la grid   
 
-            Div_TablaCliente.Visible = false;
+            Div_TablaCliente.Visible = true;
             Div_NuevoCliente.Visible = false;
             Div_editarCliente.Visible = false;
 
@@ -301,5 +301,12 @@ public partial class Cliente : System.Web.UI.Page
         {
         }
         args.IsValid = validacion;
+    }
+    protected void btn_cancelarEditar_Click(object sender, EventArgs e)
+    {
+        Div_editarCliente.Visible = false;
+        Div_TablaCliente.Visible = true;
+        Div_editarCliente.Visible = false;
+
     }
 }

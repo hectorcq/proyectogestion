@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageAdmin.master" AutoEventWireup="true" CodeFile="Cliente.aspx.cs" Inherits="Cliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageAdmin.master" AutoEventWireup="true" CodeFile="Cliente.aspx.cs" Inherits="Cliente" EnableEventValidation="false" %>
 
 <%@ Register Assembly="Tde.Controles.RutTextBox" Namespace="Tde.Controles" TagPrefix="tde" %>
 
@@ -42,7 +42,7 @@
         </table>
 
         <asp:GridView ID="tablaCliente" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-            runat="server" OnRowDataBound="OnRowDataBound1"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Justify" SelectedIndex="0" Width="50%" AllowPaging="True" OnPageIndexChanging="Tabla_Cliente_PageIndexChanging" CellSpacing="15">
+            runat="server" OnRowDataBound="OnRowDataBound1"  BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Font-Names="Century Gothic" Font-Size="Small" HorizontalAlign="Justify" SelectedIndex="0" Width="60%" AllowPaging="True" OnPageIndexChanging="Tabla_Cliente_PageIndexChanging" CellSpacing="15">
 
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" ForeColor="White" Font-Bold="True"></HeaderStyle>
@@ -248,7 +248,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    &nbsp;<asp:Button ID="btn_cancelarEditar" runat="server" Text="Cancelar" CausesValidation="False"/>
+                    &nbsp;<asp:Button ID="btn_cancelarEditar" runat="server" Text="Cancelar" CausesValidation="False" OnClick="btn_cancelarEditar_Click"/>
 &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btn_actualizarCliente" runat="server" Text="Actualiar" OnClick="btn_actualizarCliente_Click"   />
                 </td>

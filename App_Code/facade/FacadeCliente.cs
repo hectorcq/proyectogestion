@@ -17,6 +17,29 @@ public class FacadeCliente
     {
 
     }
+
+    public DataSet HistorialCliente(string Rut)
+    {
+        SqlCommand cmdBuscar = new SqlCommand();
+        cmdBuscar.Connection = conectarBD.Conectar();
+        cmdBuscar.CommandText = "buscar_historialPedi";             // Nombre del procedimiento almacenado
+        cmdBuscar.CommandType = CommandType.StoredProcedure;    // Indicar que se ejecuta un Procedimiento en vez de una Query
+        cmdBuscar.Parameters.AddWithValue("@rut", Rut);    // Los parametros del procedimiento, si tuviera
+        SqlDataAdapter daBuscar = new SqlDataAdapter(cmdBuscar);
+
+        DataSet dsBuscar = new DataSet();                       // DataSet para cargar los datos
+        daBuscar.Fill(dsBuscar, "mitabla");                      // Llena el DataSet con el resultado y lo nombra con un alias "mitabla"
+        // Libera los objetos, memoria y cierra la conexion
+        daBuscar.Dispose();
+        dsBuscar.Dispose();
+        conectarBD.cerrarSQL();
+
+        return dsBuscar;
+
+    }
+
+
+
     public DataSet buscarClienteX(string txtCliente, string BuscarPor)
     {
         SqlCommand cmdBuscar = new SqlCommand();
@@ -180,11 +203,6 @@ public class FacadeCliente
         conectarBD.cerrarSQL();
         //return encontrado;
         return mensaje;
-
-
-        
-
-
 
     }
 
